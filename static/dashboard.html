@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | Real Estate Operations Dashboard</title>
+  <link rel="stylesheet" href="/css/ams-theme.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="logo">
+        <span class="logo-badge">Real Estate Ops</span>
+        <h2>Listing & Agent Management</h2>
+        <p>Backend-focused demo</p>
+      </div>
+      <nav class="nav">
+        <a class="active" href="/dashboard.html">Dashboard</a>
+        <a href="/assets.html">Listings</a>
+        <a href="/employees.html">Agents</a>
+        <a href="/locations.html">Offices</a>
+        <button onclick="logout()">Logout</button>
+      </nav>
+      <div class="sidebar-footer">Logged in as<br /><strong data-user-name>Loading...</strong></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1>Operations Dashboard</h1>
+          <p>Track listings, agents, offices, and internal real estate workflows.</p>
+        </div>
+        <div class="user-chip">Admin Panel</div>
+      </header>
+
+      <div id="dashboardMessage" class="message"></div>
+
+      <section class="grid stats-grid">
+        <div class="card"><div class="stat-label">Total Listings</div><div id="totalListings" class="stat-value">0</div></div>
+        <div class="card"><div class="stat-label">Available</div><div id="availableListings" class="stat-value">0</div></div>
+        <div class="card"><div class="stat-label">Pending</div><div id="pendingListings" class="stat-value">0</div></div>
+        <div class="card"><div class="stat-label">Rented</div><div id="rentedListings" class="stat-value">0</div></div>
+        <div class="card"><div class="stat-label">Sold</div><div id="soldListings" class="stat-value">0</div></div>
+        <div class="card"><div class="stat-label">Active Agents</div><div id="activeAgents" class="stat-value">0</div></div>
+        <div class="card"><div class="stat-label">Offices</div><div id="totalLocations" class="stat-value">0</div></div>
+        <div class="card"><div class="stat-label">Unassigned Listings</div><div id="unassignedListings" class="stat-value">0</div></div>
+      </section>
+
+      <section class="card table-card">
+        <h2>Recent Listings</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Listing</th><th>City</th><th>Type</th><th>Price/Rent</th><th>Status</th><th>Agent</th>
+              </tr>
+            </thead>
+            <tbody id="recentListingsBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/js/config.js"></script>
+  <script src="/js/session.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

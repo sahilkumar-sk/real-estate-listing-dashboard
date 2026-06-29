@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Real Estate Operations Dashboard</title>
+  <link rel="stylesheet" href="/css/auth.css" />
+</head>
+<body>
+  <main class="auth-wrapper">
+    <section class="auth-card">
+      <div class="brand">
+        <h1>Real Estate Operations Dashboard</h1>
+        <p class="subtitle">Login to manage listings, agents, offices, and real estate workflows.</p>
+      </div>
+
+      <div id="loginMessage" class="message"></div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" type="email" value="sahil@example.com" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input id="password" type="password" value="123456" required />
+        </div>
+        <button class="btn" type="submit">Login</button>
+      </form>
+
+      <div class="demo-box">
+        <strong>Demo Credentials</strong><br />
+        Email: sahil@example.com<br />
+        Password: 123456
+      </div>
+
+      <p class="auth-footer">Need an account? <a href="/register.html">Create one</a></p>
+    </section>
+  </main>
+
+  <script src="/js/config.js"></script>
+  <script src="/js/session.js"></script>
+  <script src="/js/login.js"></script>
+</body>
+</html>

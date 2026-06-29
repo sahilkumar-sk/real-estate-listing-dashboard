@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Offices | Real Estate Operations Dashboard</title>
+  <link rel="stylesheet" href="/css/ams-theme.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="logo">
+        <span class="logo-badge">Real Estate Ops</span>
+        <h2>Listing & Agent Management</h2>
+        <p>Backend-focused demo</p>
+      </div>
+      <nav class="nav">
+        <a href="/dashboard.html">Dashboard</a>
+        <a href="/assets.html">Listings</a>
+        <a href="/employees.html">Agents</a>
+        <a class="active" href="/locations.html">Offices</a>
+        <button onclick="logout()">Logout</button>
+      </nav>
+      <div class="sidebar-footer">Logged in as<br /><strong data-user-name>Loading...</strong></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div><h1>Offices</h1><p>Manage brokerage office locations used by agents and listings.</p></div>
+        <div class="user-chip">Office Module</div>
+      </header>
+
+      <div id="locationMessage" class="message"></div>
+
+      <section class="content-grid">
+        <div class="card form-card">
+          <h2 id="formTitle">Add Office</h2>
+          <form id="locationForm">
+            <div class="form-group">
+              <label for="locationName">Office Name</label>
+              <input id="locationName" type="text" placeholder="Manhattan Office" required />
+            </div>
+            <div class="form-group">
+              <label for="locationCity">City</label>
+              <input id="locationCity" type="text" placeholder="New York" required />
+            </div>
+            <div class="form-group">
+              <label for="locationAddress">Address</label>
+              <input id="locationAddress" type="text" placeholder="120 Broadway, New York, NY" />
+            </div>
+            <div class="form-group">
+              <label for="locationStatus">Status</label>
+              <select id="locationStatus">
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+              </select>
+            </div>
+            <div class="form-actions">
+              <button id="saveLocationBtn" class="btn" type="submit">Save Office</button>
+              <button id="cancelEditBtn" class="btn secondary" type="button" style="display: none;">Cancel</button>
+            </div>
+          </form>
+        </div>
+
+        <section class="card table-card">
+          <h2>Office Records</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Office</th><th>City</th><th>Address</th><th>Status</th>
+                  <th>Agents</th><th>Listings</th><th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="locationsBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script src="/js/config.js"></script>
+  <script src="/js/session.js"></script>
+  <script src="/js/locations.js"></script>
+</body>
+</html>

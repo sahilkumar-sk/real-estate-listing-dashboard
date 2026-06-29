@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Listings | Real Estate Operations Dashboard</title>
+  <link rel="stylesheet" href="/css/ams-theme.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="logo">
+        <span class="logo-badge">Real Estate Ops</span>
+        <h2>Listing & Agent Management</h2>
+        <p>Backend-focused demo</p>
+      </div>
+      <nav class="nav">
+        <a href="/dashboard.html">Dashboard</a>
+        <a class="active" href="/assets.html">Listings</a>
+        <a href="/employees.html">Agents</a>
+        <a href="/locations.html">Offices</a>
+        <button onclick="logout()">Logout</button>
+      </nav>
+      <div class="sidebar-footer">Logged in as<br /><strong data-user-name>Loading...</strong></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div><h1>Listings</h1><p>Create, update, assign, and manage real estate property listings.</p></div>
+        <div class="user-chip">CRUD Module</div>
+      </header>
+
+      <div id="listingMessage" class="message"></div>
+
+      <section class="content-grid">
+        <div class="card form-card">
+          <h2 id="formTitle">Add Listing</h2>
+          <form id="listingForm">
+            <div class="form-group">
+              <label for="listingTitle">Title</label>
+              <input id="listingTitle" type="text" placeholder="Modern 2-Bed Apartment" required />
+            </div>
+            <div class="form-group">
+              <label for="listingAddress">Address</label>
+              <input id="listingAddress" type="text" placeholder="245 West 34th Street" required />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="listingCity">City</label>
+                <input id="listingCity" type="text" placeholder="New York" required />
+              </div>
+              <div class="form-group">
+                <label for="listingType">Property Type</label>
+                <select id="listingType" required>
+                  <option value="">Select type</option>
+                  <option value="Apartment">Apartment</option>
+                  <option value="Condo">Condo</option>
+                  <option value="House">House</option>
+                  <option value="Studio">Studio</option>
+                  <option value="Commercial">Commercial</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="listingPrice">Price/Rent</label>
+                <input id="listingPrice" type="number" min="1" required />
+              </div>
+              <div class="form-group">
+                <label for="listingStatus">Status</label>
+                <select id="listingStatus">
+                  <option value="Available">Available</option>
+                  <option value="Pending">Pending</option>
+                  <option value="Rented">Rented</option>
+                  <option value="Sold">Sold</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="listingBedrooms">Bedrooms</label>
+                <input id="listingBedrooms" type="number" min="0" value="1" />
+              </div>
+              <div class="form-group">
+                <label for="listingBathrooms">Bathrooms</label>
+                <input id="listingBathrooms" type="number" min="0" value="1" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="listingAgent">Assigned Agent</label>
+              <select id="listingAgent"></select>
+            </div>
+            <div class="form-group">
+              <label for="listingLocation">Office</label>
+              <select id="listingLocation"></select>
+            </div>
+            <div class="form-group">
+              <label for="listingDescription">Description</label>
+              <textarea id="listingDescription" placeholder="Short property description..."></textarea>
+            </div>
+            <div class="form-actions">
+              <button id="saveListingBtn" class="btn" type="submit">Save Listing</button>
+              <button id="cancelEditBtn" class="btn secondary" type="button" style="display: none;">Cancel</button>
+            </div>
+          </form>
+        </div>
+
+        <div>
+          <section class="card table-card">
+            <h2>Listing Records</h2>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Listing</th><th>City</th><th>Type</th><th>Price/Rent</th>
+                    <th>Beds</th><th>Baths</th><th>Status</th><th>Agent</th><th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="listingsBody"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="showSheetPanel" class="card show-sheet">
+            <div class="topbar">
+              <div>
+                <h2 id="showSheetTitle">Show Sheet</h2>
+                <p>Client-ready marketing summary generated from listing data.</p>
+              </div>
+              <button id="closeShowSheetBtn" class="btn secondary" type="button">Close</button>
+            </div>
+            <div id="showSheetContent"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/js/config.js"></script>
+  <script src="/js/session.js"></script>
+  <script src="/js/assets.js"></script>
+</body>
+</html>
